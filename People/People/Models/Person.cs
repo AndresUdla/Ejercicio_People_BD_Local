@@ -1,4 +1,5 @@
-﻿namespace People.Models;
+﻿using SQLite;
+namespace People.Models;
 
 public class Person
 {
