@@ -8,16 +8,16 @@ public class PersonRepository
 
 
     public string StatusMessage { get; set; }
-    private SQLiteConnection conn;
+    private SQLiteAsyncConnection conn;
 
-    private void Init()
+    private async Task Init()
     {
-
         if (conn != null)
             return;
 
-        conn = new SQLiteConnection(_dbPath);
-        conn.CreateTable<Person>();
+        conn = new SQLiteAsyncConnection(_dbPath);
+
+        await conn.CreateTableAsync<Person>();
     }
 
     public PersonRepository(string dbPath)
